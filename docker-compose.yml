@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mountebank:
+    image: bbyars/mountebank
+    ports:
+      - "3001:3001"
+      - "2525:2525"
+    volumes:
+      - ./impostos.json:/app/impostos.json
+    command: ["start", "--configfile", "/app/impostos.json"]

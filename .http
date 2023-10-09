@@ -1,0 +1,36 @@
+POST http://localhost:8080/your-soap-endpoint2
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://example.com/SoapAction"
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://example.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <web:YourSoapRequest>
+            <web:Parameter1>Value1</web:Parameter1>
+            <web:Parameter2>Value2</web:Parameter2>
+        </web:YourSoapRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+###
+POST http://localhost:8080/your-soap-endpoint
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://example.com/SoapAction"
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <exemplo_param>Rogerio</exemplo_param>
+  </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:3001/servico-soap
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://example.com/SoapAction"
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><exemplo_param>Rogerio</exemplo_param></soap:Body></soap:Envelope>
+
+   
+
+###
+GET http://localhost:3001/servico-soap

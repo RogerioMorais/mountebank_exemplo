@@ -1,0 +1,54 @@
+{
+    "port": 3001,
+    "protocol": "http",
+    "stubs": [
+      {
+        "predicates": [
+          {
+            "equals": {
+              "path": "/servico-soap",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "text/xml; charset=utf-8",
+                "SOAPAction": "\"http://example.com/SoapAction\""
+              },
+              "body":"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><exemplo_param>Rogerio</exemplo_param></soap:Body></soap:Envelope>"
+            }
+          }
+        ],
+        "responses": [
+          {
+            "is": {
+              "statusCode": 200,
+              "headers": {
+                "Content-Type": "text/xml"
+              },
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Resposta>Resposta com base na sua requisição SOAP aqui</Resposta></soap:Body></soap:Envelope>"
+            }
+          }
+        ]
+      },
+      {
+        "predicates": [
+          {
+            "equals": {
+              "path": "/servico-soap",
+              "method": "GET"
+            }
+          }
+        ],
+        "responses": [
+          {
+            "is": {
+              "statusCode": 200,
+              "headers": {
+                "Content-Type": "text/xml"
+              },
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><Resposta>Seu mock de resposta SOAP aqui (GET)</Resposta></soap:Body></soap:Envelope>"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
